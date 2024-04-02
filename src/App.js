@@ -7,10 +7,18 @@ import { useState } from "react";
 export default function App() {
 
   const deaultTodo = [{
-    //生成yyyy-mm-dd hh:mm:ss格式的时间戳作为id
-    id: new Date().toISOString(),
+    id: new Date(),
     text: "默认的todo",
     completed: false,
+  },
+  {
+    id: new Date(),
+    text: "默认的todo2",
+    completed: false,
+  }, {
+    id: new Date(),
+    text: "默认的todo3",
+    completed: true,
   }];
   const [todos, setTodos] = useState([...deaultTodo]);
   const [filter, setFilter] = useState("")
@@ -18,8 +26,7 @@ export default function App() {
 
   const addTodo = (text) => {
     const newTodo = {
-      //生成yyyy-mm-dd hh:mm:ss格式的时间戳作为id
-      id: new Date().toISOString(),
+      id: new Date(),
       text: text,
       completed: false,
     };

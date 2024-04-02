@@ -1,19 +1,29 @@
 li {
-    list-style: none; /* 去掉列表的默认样式 */
-    height: 18px; /* 列表项的高度 */
-    line-height: 18px; /* 列表项的行高 */   
-    padding: 0 8px; /* 列表项的内边距 */
-    border-bottom: 1px solid #ccc; /* 列表项的下边框 */
+    list-style: none;
+    /* 去掉列表的默认样式 */
+    height: 18px;
+    /* 列表项的高度 */
+    line-height: 18px;
+    /* 列表项的行高 */
+    padding: 0 8px;
+    /* 列表项的内边距 */
+    border-bottom: 1px solid #ccc;
+    /* 列表项的下边框 */
 }
 
 
 /*容器居中显示 占据页面宽度80% */
 .todo-container {
-    display: flex; /*作用：使元素成为一个 flex 容器 ，可以对其子元素进行布局*/
-    flex-direction: column; /*作用：设置主轴的方向*/
-    align-items: center; /*作用：设置交叉轴的对齐方式*/
-    /* justify-content: center; */  /*作用：设置主轴的对齐方式*/
-    height: 100vh; /* 作用：设置容器的高度为页面高度 vh指的是视窗高度*/
+    display: flex;
+    /*作用：使元素成为一个 flex 容器 ，可以对其子元素进行布局*/
+    flex-direction: column;
+    /*作用：设置主轴的方向*/
+    align-items: center;
+    /*作用：设置交叉轴的对齐方式*/
+    /* justify-content: center; */
+    /*作用：设置主轴的对齐方式*/
+    height: 100vh;
+    /* 作用：设置容器的高度为页面高度 vh指的是视窗高度*/
     width: 80%;
     margin: 0 auto;
     padding: 20px;
@@ -23,15 +33,26 @@ li {
 
 
 .todo-input {
-    width: 400px; 
+    width: 400px;
     padding: 10px;
+    height: 22px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border: solid 1px #ccc; 
+    border: solid 1px #ccc;
+    /* 设置hover border 颜色 */
+    transition: border 0.3s ease-in-out;
+}
+
+
+.todo-input:focus-visible {
+    outline: none;
+    border-color: #4CAF50;
+    /* 设置focus border 颜色 */
+    box-shadow: 0 0 5px #4CAF50;
 }
 
 .todo-list {
-    width: 400px;
+    width: 600px;
 }
 
 .todo-item {
@@ -44,9 +65,15 @@ li {
     justify-content: flex-start;
 }
 
+/* .todo-item:only-child {
+    border-bottom: none;
+} */
+
 .todo-item:last-child {
     border-bottom: none;
 }
+
+
 
 .todo-item-text {
     font-size: 18px;
@@ -55,22 +82,39 @@ li {
 }
 
 .todo-item-button {
-    font-size: 18px;
-    font-weight: bold;
+    /*靠右对齐*/
+    
+    font-size: 14px;
+    color: #fff;
+    background-color: #2d52f9;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
     cursor: pointer;
+    margin-left: 2cap;
 }
 
 
-.todo-btn{
+.todo-btn {
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 14px;
+    margin: 0px 4px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+
+.todo-footer {
+    /*子元素靠左对齐*/
+    display: flex; /*作用：使元素成为一个 flex 容器 ，可以对其子元素进行布局*/
+    align-items: center; /*作用：设置交叉轴的对齐方式*/
+    justify-content: flex-end; /*作用：设置主轴的对齐方式*/
+    padding: 10px;
+    margin-top: 20px;
 }

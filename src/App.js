@@ -1,26 +1,65 @@
 import "./App.css";
+import TodoHeader from "./components/TodoHeader";
+import TodoContent from "./components/TodoContent";
+import TodoFooter from "./components/TodoFooter";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+
+  const deaultTodo = [{
+    //生成yyyy-mm-dd hh:mm:ss格式的时间戳作为id
+    id: new Date().toISOString(),
+    text: "默认的todo",
+    completed: false,
+  }];
+  const [todos, setTodos] = useState([...deaultTodo]);
+  const [filter, setFilter] = useState("")
+
+
+  const addTodo = (text) => {
+    const newTodo = {
+      //生成yyyy-mm-dd hh:mm:ss格式的时间戳作为id
+      id: new Date().toISOString(),
+      text: text,
+      completed: false,
+    };
+
+    setTodos([...todos, newTodo]);
+  };
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const filterTodo = () => {
+    switch (filter) {
+      case "active":
+        return todos.filter((todo) => !todo.completed);
+      case "completed":
+        return todos.filter((todo) => todo.completed);
+      default:
+        return todos;
+    };
+  }
+
   return (
     <>
+      <h1 style={{ textAlign: "center" }} >React TodoList</h1> {/*H1居中对齐*/}
       <div className="todo-container">
-        <div className="todo-header">
-          <input type="text" className="todo-input" placeholder="在这里输入todo内容，回车键确认" />
-        </div>
-        <div className="todo-content">
-          <ul className="todo-list">
-            <li className="todo-item"><input type="checkbox" /> 吃饭</li>
-            <li className="todo-item"> <input type="checkbox" /> 睡觉</li>
-            <li className="todo-item"><input type="checkbox" /> 打豆豆</li>
-          </ul>
-        </div>
-        <div className="todo-footer">
-          <label><input type="checkbox" /> 全部选中</label>
-          <button className="todo-btn">删除已完成</button>
-        </div>
+        <TodoHeader addTodo={addTodo} />
+        <TodoContent todos={filterTodo(todos)} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
+        <TodoFooter setFilter={setFilter} />
       </div>
     </>
   );
 }
 
-export default App;
+

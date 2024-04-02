@@ -1,0 +1,76 @@
+li {
+    list-style: none; /* 去掉列表的默认样式 */
+    height: 18px; /* 列表项的高度 */
+    line-height: 18px; /* 列表项的行高 */   
+    padding: 0 8px; /* 列表项的内边距 */
+    border-bottom: 1px solid #ccc; /* 列表项的下边框 */
+}
+
+
+/*容器居中显示 占据页面宽度80% */
+.todo-container {
+    display: flex; /*作用：使元素成为一个 flex 容器 ，可以对其子元素进行布局*/
+    flex-direction: column; /*作用：设置主轴的方向*/
+    align-items: center; /*作用：设置交叉轴的对齐方式*/
+    /* justify-content: center; */  /*作用：设置主轴的对齐方式*/
+    height: 100vh; /* 作用：设置容器的高度为页面高度 vh指的是视窗高度*/
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+.todo-input {
+    width: 400px; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: solid 1px #ccc; 
+}
+
+.todo-list {
+    width: 400px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: solid 1px #ccc;
+    /*左对齐*/
+    justify-content: flex-start;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-item-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.todo-item-button {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.todo-btn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
